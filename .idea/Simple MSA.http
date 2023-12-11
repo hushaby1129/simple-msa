@@ -1,0 +1,117 @@
+# Simple MSA
+
+###
+# group: 1. Service Discovery
+# @name Eureka - apps (서비스 조회)
+GET http://localhost:8761/eureka/apps
+
+###
+# group: 1. Service Discovery
+# @name Service1 - discovery services
+GET http://localhost:8011/services
+
+###
+# group: 1. Service Discovery
+# @name Service2 - name
+GET http://localhost:8021/name/1
+
+###
+# group: 2. Rest API Call
+# @name Service1 - name (by RestRemplate)
+GET http://localhost:8011/resttemplate/1
+
+###
+# group: 2. Rest API Call
+# @name Service1 - name (by Ribbon)
+GET http://localhost:8011/ribbon/1
+
+###
+# group: 2. Rest API Call
+# @name Service1 - name (by Feign)
+GET http://localhost:8011/feign/1
+
+###
+# group: 3. API G/W
+# @name API G/W - actuator/routes
+GET http://localhost:5555/actuator/routes
+
+###
+# group: 3. API G/W
+# @name API G/W - name (by Feign) Copy
+GET http://localhost:5555/api/service1/feign/1
+
+###
+# group: 3. API G/W
+# @name API G/W - service2 name
+GET http://localhost:5555/api/service2/name/1
+
+###
+# group: 4. Hystrix
+# @name Service1 - Hystrix Test1
+GET http://localhost:8011/hystrix1
+
+###
+# group: 4. Hystrix
+# @name Service1 - Hystrix Test2
+GET http://localhost:8011/hystrix2
+
+###
+# group: 5. Config Server
+# @name Conf-Server - Service1 기본 설정 가져오기
+GET http://localhost:8888/service1/default
+
+###
+# group: 5. Config Server
+# @name Conf-Server - Service1 DEV 설정 가져오기
+GET http://localhost:8888/service1/dev
+
+###
+# group: 5. Config Server
+# @name Service1 - Get Property from Config Server
+GET http://localhost:8011/config/example-property
+
+###
+# group: 5. Config Server
+# @name Service1 - refresh
+POST http://localhost:8011/actuator/refresh
+
+###
+# group: 5. Config Server
+# @name Conf-Server - encrypt
+POST http://localhost:8888/encrypt
+Content-Type: text/plain
+
+git-password
+
+###
+# group: 5. Config Server
+# @name Conf-Server - decrypt
+POST http://localhost:8888/decrypt
+Content-Type: text/plain
+
+469cc1eb5e7ae9b8f06a40431b001fc0b4e866f6970099a2904f4e8274fe462bab646b2cfd3f8992a0b652652e609af1
+
+###
+# group: 5. Config Server
+# @name Service1 - Get Password from Config Server
+GET http://localhost:8011/config/example-password
+
+###
+# group: 6. Graceful Shutdown
+# @name Service1 - Gracefull Shutdown
+POST http://localhost:8011/actuator/shutdown
+
+###
+# group: 6. Graceful Shutdown
+# @name Service2 - Gracefull Shutdown
+POST http://localhost:8021/actuator/shutdown
+
+###
+# group: 6. Graceful Shutdown
+# @name Conf-Server- Gracefull Shutdown
+POST http://localhost:8888/actuator/shutdown
+
+###
+# group: 6. Graceful Shutdown
+# @name API GW - Gracefull Shutdown
+POST http://localhost:5555/actuator/shutdown
