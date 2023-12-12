@@ -18,7 +18,7 @@ GET http://localhost:8021/name/1
 ###
 # group: 2. Rest API Call
 # @name Service1 - name (by RestRemplate)
-GET http://localhost:8011/resttemplate/1
+GET http://localhost:8011/restTemplate/1
 
 ###
 # group: 2. Rest API Call

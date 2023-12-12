@@ -6,4 +6,10 @@ public interface DiscoveryService {
 
     List<String> getServiceList();
 
+    String getNameByRestTemplate(String id);
+
+    String getNameByRibbon(String id);
+
+    String getNameByFeign(String id);
+
 }
